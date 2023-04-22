@@ -31,9 +31,8 @@ public class App
 
 
         Set<Integer> interjection = new HashSet<>();
-        Set<Integer> thirdSet = new HashSet<>();
-        thirdSet.addAll(firstSet);
-        for (Integer number: thirdSet){
+
+        for (Integer number: firstSet){
 
              for(Integer number2: secondSet){
                  if (number == number2){
@@ -102,10 +101,8 @@ public class App
         for (Map.Entry <String,Integer> entry: shoppingList1.entrySet()){
             String key = entry.getKey();
             Integer value = entry.getValue();
-            // Jezeli nie istnieje key value, to dodajemy obydwa do shoppingListCommon
-            if (shoppingListCommon.containsKey(key)==false){
-                shoppingListCommon.put(key,value);
-            }
+
+
         }
 
         System.out.println("wersja 1");
@@ -117,22 +114,25 @@ public class App
         for (Map.Entry <String,Integer> entry: shoppingList2.entrySet()){
             String key = entry.getKey();
             Integer value = entry.getValue();
-
+            Integer value2 = entry.getValue();
 
             if (shoppingListCommon.containsKey(key)==false){
                 shoppingListCommon.put(key,value);
             } else if (shoppingListCommon.containsKey(key)==true) {
-               Integer value2 = entry.getValue();
-                System.out.println("Value 1 :"+value);
-                System.out.println("Value 2 :"+value2);
+
+                System.out.println("Value 1 :" +value);
+                System.out.println("Value 2 :" +value2);
                 shoppingListCommon.put(key,value+value2);
 
             }
         }
         System.out.println("Common shopping List:");
-        for (Map.Entry <String,Integer> entry: shoppingListCommon.entrySet()) {
-
-            System.out.println(entry.getKey() + ":" + entry.getValue());
+       // for (Map.Entry <String,Integer> entry: shoppingListCommon.entrySet()) {
+            for (String key : shoppingListCommon.keySet()) {
+                int quantity = shoppingListCommon.get(key);
+                System.out.println(key + ": " + quantity);
+             //   System.out.println(entry.getKey() + ":" + entry.getValue());
+            }
         }
         //komentarz
 
@@ -146,4 +146,4 @@ public class App
 
 
     }
-}
+
