@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-
+        System.out.println("Interjection");
         Set<Integer> firstSet = new HashSet<>();
         Set<Integer> secondSet = new HashSet<>();
 
@@ -39,22 +39,14 @@ public class App
              }
          }
         for (Integer inter: interjection){
-            System.out.println("Interjestion: "+ inter);
+            System.out.println("Interjection: "+ inter);
         }
 
 
 
-
-
-        thirdSet.addAll(secondSet);
-
-         for (Integer number: thirdSet){
-             System.out.println(number);
-         }
-
        // suma
 
-        System.out.println("Suma:");
+        System.out.println("Union:");
 
         Set<Integer> sumWithCommonPart = new HashSet<>();
         sumWithCommonPart.addAll(firstSet);
@@ -65,34 +57,19 @@ public class App
             System.out.println(number);
         }
 
+        System.out.println("Union without common part:");
 
-        // suma bez czesci wspolnej to Suma - czesc wspolna
-        //sumWithCommonPart - interjection 0,4,6,8,9
-        //sumWithCommonPar 0,1,4,6,8,9,12
-        //interjection 1, 12
+        Set<Integer> sumWithoutCommonPart = new HashSet<>(sumWithCommonPart);
+        sumWithoutCommonPart.removeAll(interjection);
 
 
-//        Set<Integer> sumWithoutCommonPart = new HashSet<>();
-//
-//        for( Integer num: sumWithCommonPart){
-//            for(Integer num2: interjection){
-//                if(num !=num2){
-//                    sumWithoutCommonPart.add(num2);
-//
-//                   // sumWithoutCommonPart.add(num);
-//                }
-//            }
-//        }
-//        for(Integer el: sumWithoutCommonPart){
-//            System.out.println("to jest set bez czesci wspolnej: " + el);
-//        }
+          for(Integer el: sumWithoutCommonPart){
+            System.out.println("to jest set bez czesci wspolnej: " + el);
+        }
 
 
 
-
-
-
-        // difference between set first and second - 4,6,8
+        System.out.println("Difference between first and second set:");
 
         Set<Integer> difference = new HashSet<>(firstSet);
         difference.removeAll(secondSet);
